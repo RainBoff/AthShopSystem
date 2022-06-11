@@ -1,0 +1,46 @@
+﻿@model Data_Model_P.SzczegolyZamowienia
+@using asp_mvc_std_v2
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SzczegolyZamowienia</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdZamowienia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdZamowienia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProduktu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdProduktu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ilosc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ilosc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

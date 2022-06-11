@@ -1,0 +1,32 @@
+﻿@model asp_mvc_std_v2.Models.UsersAndRoles
+
+@{
+    ViewData["Title"] = "EditRole";
+}
+
+<h1>@Model.userList.FirstOrDefault().UserName</h1>
+
+<h4>Roles</h4>
+<hr />
+
+@foreach (var shop in Model.shopList)
+{
+
+
+    <form asp-action="EditShop">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" name="userId" asp-for="@Model.userList.FirstOrDefault().UserId" />
+        <input type="hidden" name="shopId" asp-for="@shop.ShopId" />
+
+        <div class="form-group">
+            <input type="submit" value="@shop.ShopName" class="btn btn-primary" />
+        </div>
+    </form>
+
+}
+
+<div>
+    <a asp-action="AdminPage">Back to List</a>
+</div>
+

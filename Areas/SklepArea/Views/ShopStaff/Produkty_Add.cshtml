@@ -1,0 +1,52 @@
+﻿@model asp_mvc_std_v2.Areas.SklepArea.Models.Sklep_ProduktyViewModel
+@using asp_mvc_std_v2
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Produkty" asp-route-id="@Model.Id">Wroć</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Cena
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllproduktList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+
+                <td>
+
+                    <form asp-action="Produkty_Add" asp-route-id="@Model.Id">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input type="hidden" name="sklepId" asp-for="@Model.Id" />
+                        <input type="hidden" name="produktId" asp-for="@item.Id" />
+
+                        <div class="form-group">
+                            <input type="submit" value="Dodaj" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

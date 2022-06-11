@@ -1,0 +1,50 @@
+﻿@model Data_Model_P.ProduktWSklepie
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>ProduktWSklepie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <input asp-for="ProductId" class="form-control" />
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SklepId" class="control-label"></label>
+                <input asp-for="SklepId" class="form-control" />
+                <span asp-validation-for="SklepId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CenaWSklepie" class="control-label"></label>
+                <input asp-for="CenaWSklepie" class="form-control" />
+                <span asp-validation-for="CenaWSklepie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model asp_mvc_std_v2.Models.UsersAndRoles
+
+@{
+    ViewData["Title"] = "EditRole";
+}
+
+<h1>@Model.userList.FirstOrDefault().UserName</h1>
+
+<h4>Roles</h4>
+<hr />
+
+        @foreach (var role in Model.rolesList)
+        {
+
+
+<form asp-action="EditRole">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" name="uuserId" asp-for="@Model.userList.FirstOrDefault().UserId" />
+    <input type="hidden" name="rroleId" asp-for="@role.roleID" />
+
+    <div class="form-group">
+        <input type="submit" value="@role.roleName" class="btn btn-primary"  />
+    </div>
+</form>
+
+        }
+
+        <div>
+            <a asp-action="AdminPage">Back to List</a>
+        </div>
+
+    

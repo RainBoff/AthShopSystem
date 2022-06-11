@@ -1,0 +1,26 @@
+﻿@model asp_mvc_std_v2.Areas.MainAdmin.Models.ZamowieniaViewModel
+@using asp_mvc_std_v2
+@using Data_Model_P;
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@foreach (var item in Model.szczegolyZamowienia)
+{
+<p>@Model.produkty.Where(x => x.ProductId == item.IdProduktu).FirstOrDefault().ProductName x @item.Ilosc Cena za Sztukę @item.Cena PLN</p>
+    @if (Model.Status == Data_Model_P.Enums.Status.Rozopoczete)
+    {
+    <form asp-action="ZamowieniaWSklepieSZ_Remove">
+        <input name="IdSklepu" type="hidden" asp-for="@Model.IdSklepu" />
+        <input name="Id" type="hidden" asp-for="@item.Id" />
+        <input type="submit" value="Usun" class="btn btn-danger" />
+    </form>
+        }
+   
+}
+
+<p>Data: @Model.DataUtworzenia</p>
+<p>Wartość: @Model.Wartosc PLN</p>

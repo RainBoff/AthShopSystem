@@ -1,0 +1,33 @@
+﻿@model asp_mvc_std_v2.Models.UsersAndRoles;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+
+
+    <tbody>
+        @foreach (var user in Model.userList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.role.roleName) |
+                    <a asp-action="EditRole" asp-route-id="@user.UserId">Edituj Role</a>
+                </td>
+                <td>
+                    @if (user.shop== null) {< Brak />} else {
+                    @Html.DisplayFor(modelItem => user.shop.ShopName)} |
+                    <a asp-action="EditShop" asp-route-id="@user.UserId">zmien Sklep</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
